@@ -1,0 +1,320 @@
+
+%
+% 包的引入
+%
+% 封面的相关命令设置
+% 	- 标题
+% 	- 子标题
+% 	- 课程名称
+% 	- 老师
+% 	- 学生信息
+\newcommand{\hmwkTitle}{作业标题}
+%\newcommand{\hmwkDueDate}{November 18, 2019}
+\newcommand{\hmwkSubTitle}{作业副标题}
+\newcommand{\hmwkClass}{课程名称}
+\newcommand{\hmwkCompleteTime}{\today}
+\newcommand{\hmwkClassInstructor}{指导老师：？？？ }
+\newcommand{\hmwkAuthorName}{学生：\textbf{？？？} }
+\newcommand{\hmwMajor}{ 专业：\textbf{？？？}}
+\newcommand{\hmwNumber}{学号：\textbf{2022400？？？？}}
+
+% 模板的风格配置文件
+
+\usepackage{fancyhdr}  % header，footer的设置
+\usepackage{extramarks}
+\usepackage{amsmath}  % 数学公式
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tikz}
+%\usepackage{tikz-feynman} 
+\usepackage{amsthm}
+\usepackage{makecell}
+\usepackage{amsfonts}
+\usepackage{tikz}  % 绘图
+\usepackage{algorithm}  % 算法
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}  % 伪代码
+\usepackage[UTF8, fontset=fandol, punct=kaiming]{ctex}  % 支持中文
+\usepackage{multirow}  % 表格多行
+\usepackage{float}  % 强制图片在当前位置
+\usepackage{enumitem}  % 列表缩进 
+\usepackage{listings}  % 代码块
+\usepackage{fontspec}  % 字体
+\usepackage[dvipsnames]{xcolor}
+\usepackage[hidelinks,
+    pdfauthor=Chi-chun\ Leung,
+    pdftitle=\hmwkSubTitle,
+    pdfsubject=\hmwkClass]{hyperref}  % 超链接
+% \usepackage{subfigure}
+\usepackage{subcaption}
+% \usepackage{ftnxtra}
+\usetikzlibrary{automata,positioning}
+
+
+%
+% 设置页面
+%
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% 设置 autoref 标签中文
+%
+
+\renewcommand{\sectionautorefname}{节}
+\renewcommand{\subsectionautorefname}{小节}
+\renewcommand{\subsubsectionautorefname}{子小节}
+\renewcommand{\figureautorefname}{图}
+\renewcommand{\tableautorefname}{表}
+\renewcommand{\equationautorefname}{公式}
+
+%
+% 用fancyhdr设置header和footer
+% 
+\pagestyle{fancy}
+\lhead{\hmwkClass\ : \hmwkTitle}
+\rhead{\hmwkAuthorName}
+%\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}
+%\chead{\hmwkClass\ : \hmwkTitle}
+%\rhead{\firstxmark}
+%\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+
+%
+% %%%%%%%%%%%%%%   自定义的命令   %%%%%%%%%%%%%%
+%
+
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+
+\lstdefinelanguage{json}{
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+
+\lstset{tabsize=4, showstringspaces=false}
+\lstset{
+     basicstyle=\ttfamily, % 设置字体族
+     breaklines=true, % 自动换行
+     keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
+     morekeywords={}, % 设置更多的关键字，用逗号分隔
+     emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    frame=single, % 边框
+    framesep=1em % 设置代码与边框的距离
+}
+
+\newcommand{\lstxml}{\lstset{
+    language=xml, % 设置语言
+     basicstyle=\ttfamily, % 设置字体族
+     breaklines=true, % 自动换行
+     keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
+     morekeywords={}, % 设置更多的关键字，用逗号分隔
+     emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    frame=single, % 边框
+    framesep=1em % 设置代码与边框的距离
+}}
+
+\newcommand{\lstpy}{\lstset{
+    language=Python, % 设置语言
+     basicstyle=\ttfamily, % 设置字体族
+     breaklines=true, % 自动换行
+     keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
+     morekeywords={}, % 设置更多的关键字，用逗号分隔
+     emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    frame=single, % 边框
+    framesep=1em % 设置代码与边框的距离
+}}
+
+\newcommand{\lstcpp}{\lstset{
+    language=C++, % 设置语言
+     basicstyle=\ttfamily, % 设置字体族
+     breaklines=true, % 自动换行
+     keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
+     morekeywords={}, % 设置更多的关键字，用逗号分隔
+     emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    frame=single, % 边框
+    framesep=1em % 设置代码与边框的距离
+}}
+
+\newcommand{\lstbash}{\lstset{
+    language=bash, % 设置语言
+     basicstyle=\ttfamily, % 设置字体族
+     breaklines=true, % 自动换行
+     keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
+     morekeywords={}, % 设置更多的关键字，用逗号分隔
+     emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    frame=single, % 边框
+    framesep=1em % 设置代码与边框的距离
+}}
+
+\newcommand{\lstlua}{\lstset{
+    language=lua, % 设置语言
+     basicstyle=\ttfamily, % 设置字体族
+     breaklines=true, % 自动换行
+     keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
+     morekeywords={}, % 设置更多的关键字，用逗号分隔
+     emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    frame=single, % 边框
+    framesep=1em % 设置代码与边框的距离
+}}
+
+\newcommand{\lstmatlab}{\lstset{
+    language=MATLAB, % 设置语言
+     basicstyle=\ttfamily, % 设置字体族
+     breaklines=true, % 自动换行
+     keywordstyle=\bfseries\color{NavyBlue}, % 设置关键字为粗体，颜色为 NavyBlue
+     morekeywords={}, % 设置更多的关键字，用逗号分隔
+     emph={self}, % 指定强调词，如果有多个，用逗号隔开
+    emphstyle=\bfseries\color{Rhodamine}, % 强调词样式设置
+    commentstyle=\itshape\color{black!50!white}, % 设置注释样式，斜体，浅灰色
+    stringstyle=\bfseries\color{PineGreen!90!black}, % 设置字符串样式
+    columns=flexible,
+    numbers=left, % 显示行号在左边
+    numbersep=2em, % 设置行号的具体位置
+    numberstyle=\footnotesize, % 缩小行号
+    frame=single, % 边框
+    framesep=1em % 设置代码与边框的距离
+}}
+
+
+% Homework Problem 命令的相关设置
+\newcommand{\enterProblemHeader}[1]{
+	\nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+	\nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+	\nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+	\stepcounter{#1}
+	\nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+% \setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+% Homework Problem Environment
+% 该环境可以获取一个参数，用于指定问题的编号。如果给定了该参数，则使用它，否则的话会自动生成。
+\newenvironment{homeworkProblem}[1][-1]{
+	\ifnum#1>0
+	\setcounter{homeworkProblemCounter}{#1}
+	\fi
+	\section{Problem \arabic{homeworkProblemCounter}}
+	\setcounter{partCounter}{1}
+	\enterProblemHeader{homeworkProblemCounter}
+}{
+	\exitProblemHeader{homeworkProblemCounter}
+}
+
+
+
+
+% 文档中有用的命令
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+% 表格单元格中换行
+% 使用：\tabincell{c}{单元格内容1 \\ 单元格内容2}
+% 		- c表示居中
+%		- \\ 表示换行
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+
+%
+% 将算法中的\Require替换为Input，将\Ensure替换为Output
+%
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+

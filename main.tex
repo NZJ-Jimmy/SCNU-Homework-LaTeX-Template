@@ -1,0 +1,68 @@
+% \documentclass[fontset=fandol]{ctexart}
+\documentclass{article}
+%
+% 引入模板的style文件
+%
+% \usepackage[fontset=fandol]{ctex}
+\usepackage{homework}
+\usepackage{listings}
+\usepackage{cite}
+\usepackage{xcolor}
+\usepackage{xfrac}
+% \usepackage{subfigure}
+\usepackage{tablefootnote}
+\usepackage{nicefrac}
+\usepackage[inkscapelatex=false]{svg}
+\usepackage{diagbox}
+% \usepackage{minted}
+
+
+%
+% 封面
+%
+
+\title{
+	\thispagestyle{empty}
+	\includegraphics[scale = 0.5]{SCNU_logo.eps}\\
+	\vspace{1in}
+	\textmd{\textbf{\hmwkClass\ }}\\
+    \textmd{\textbf{\hmwkSubTitle}}\\
+	%\normalsize\vspace{0.1in}\small{\date{2022年5月15日} }\\
+	\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ }}\\
+			\vspace{3in}
+	\hmwMajor{}\\
+	\hmwNumber{}\\
+	\hmwkAuthorName{}\\
+}
+
+
+
+\date{\today}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+
+%
+% 正文部分
+%
+\begin{document}
+\begin{sloppypar}
+
+	% 封面
+	\begin{titlepage}
+		\clearpage\maketitle
+		\thispagestyle{empty}
+	\end{titlepage}
+	\setlength{\parindent}{2em}
+	\pagebreak
+
+	% 目录
+	\tableofcontents
+	
+	\pagebreak
+
+	\input{sec/0-pre.tex}
+
+	\input{sec/99-citation.tex}
+\end{sloppypar}
+\end{document}

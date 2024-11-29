@@ -1,0 +1,39 @@
+# LaTeX intermediate files
+*.aux
+*.bbl
+*.blg
+*.brf
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.pdfsync
+*.dvi
+*.ps
+*.eps
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# LaTeX editor files
+*.lyx
+*.tex~
+
+# LaTeX build directories
+_build/
+latex.out/
