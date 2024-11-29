@@ -24,7 +24,6 @@
 *.pdfsync
 *.dvi
 *.ps
-*.eps
 *.nav
 *.snm
 *.vrb
